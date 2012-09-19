@@ -85,4 +85,3 @@ Any questions?
 
 Feel free to ask: synergy@secoint.ru
 
-Russian-speaking community: http://groups.google.com/group/synergy-user
