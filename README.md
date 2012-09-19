@@ -9,7 +9,7 @@ Installation
 
 Install synergy_inventory_management from git:
 
-    gem 'synergy_inventory_management', :git => 'git@github.com:secoint/synergy_inventory_management.git'
+    gem 'synergy_inventory_management', :git => 'git@github.com:bhushanlodha/synergy_inventory_management.git'
 
 Bundle up with:
 
