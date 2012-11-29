@@ -1,5 +1,5 @@
-# -*- encoding: utf-8 -*-
-#$:.push File.expand_path("../lib", __FILE__)
+#encoding: utf-8
+$:.push File.expand_path("../lib", __FILE__)
 #require "synergy_inventory_management/version"
 
 Gem::Specification.new do |s|
