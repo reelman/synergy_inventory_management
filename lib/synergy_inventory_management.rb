@@ -1,5 +1,4 @@
 require 'spree_core'
-require 'synergy_inventory_management_hooks'
 
 module SynergyInventoryManagement
   class Engine < Rails::Engine

@@ -1,0 +1,54 @@
+<script type="text/javascript">
+
+$(function(){
+
+        $('#check-all').change(function(e) {
+            if (this.checked) {
+                $('.product-select').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $('.product-select').each(function() {
+                    this.checked = false;
+                });
+            }
+        });
+
+        $('#products_actions button').click(function(e){
+            e.preventDefault();
+
+            var count = $(".product-select:checked").length;
+            if (!count) {
+                alert('<%= t(:select_products) %>');
+                return false;
+            }
+            $('.product-select').clone().appendTo('#product_ids_form').hide();
+
+            $('#product_ids_form').submit();
+        });
+
+});
+
+</script>
+
+<% 
+@taxon = params[:q][:have_taxon].present? ? Spree::Taxon.find(params[:q][:have_taxon]) : Spree::Taxon.find_by_name(t(:categories)) 
+%>
+
+<div id="products_actions" class="box">
+  <h3>Sposta i prodotti selezionati</h3>
+  <%= form_tag admin_edit_multiple_products_path(@taxon), :id => 'product_ids_form', :method => :put do %>
+    <label><%= t(:category) %></label>
+    <p>
+      <% options_for_taxon = [] %>
+      <% Spree::Taxon.find_by_name(t(:categories)).children.each_with_level(Spree::Taxon.find_by_name(t(:categories)).children.map{ |root|root.self_and_descendants}.flatten) { |tax, level| options_for_taxon << "<option value='#{tax.id}'>#{'  ' * level}#{tax.name}</option>" } %>
+      <%= select_tag :add_taxon, options_for_taxon.join.html_safe %>
+    </p>
+    <p class="form-buttons">
+        <%= button t(:update) %>
+    </p>
+  <% end -%>
+</div>
+
+
+
