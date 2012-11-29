@@ -42,7 +42,7 @@ $(function(){
     <p>
       <% options_for_taxon = [] %>
       <% Spree::Taxon.find_by_name(t(:categories)).children.each_with_level(Spree::Taxon.find_by_name(t(:categories)).children.map{ |root|root.self_and_descendants}.flatten) { |tax, level| options_for_taxon << "<option value='#{tax.id}'>#{'  ' * level}#{tax.name}</option>" } %>
-      <%= select_tag :add_taxon, options_for_taxon.join.html_safe %>
+      <%= select_tag :add_taxon, options_for_taxon.join.html_safe, :style => "width:100%" %>
     </p>
     <p class="form-buttons">
         <%= button t(:update) %>
