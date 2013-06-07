@@ -5,7 +5,7 @@ $:.push File.expand_path("../lib", __FILE__)
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = "synergy_inventory_management"
-  s.version     = '0.3'
+  s.version     = '0.3.1'
   s.authors     = 'Bhushan Lodha'
   s.email       = 'bhushanlodha@gmail.com'
   s.homepage    = "https://github.com/bhushanlodha/synergy_inventory_management"
