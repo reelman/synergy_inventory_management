@@ -23,11 +23,11 @@ $(function(){
                 alert('<%= t(:select_products) %>');
                 return false;
             }
-            form = $(this).parent().parent().attr('id');
-            formId.children('input[type=checkbox]').remove();
-            $('#listing_products .product-select').clone().appendTo(formId).hide();
+            form = $(this).parent().parent();
+            form.children('input[type=checkbox]').remove();
+            $('#listing_products .product-select').clone().appendTo(form).hide();
 
-            formId.submit();
+            form.submit();
         });
 
 });
